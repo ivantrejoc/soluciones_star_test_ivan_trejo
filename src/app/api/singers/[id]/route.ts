@@ -64,7 +64,7 @@ export async function PUT(req: Request, { params }: Params) {
     const idNumber = Number(id);
     await db.singer.update({
       where: {
-        id: idNumber
+        id: idNumber 
       },
       data: {
         name: name,
