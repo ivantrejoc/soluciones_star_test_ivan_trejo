@@ -1,14 +1,42 @@
+"use client";
 
-async function getSingers() {
+import { Singer } from "@prisma/client";
+import { useEffect, useState } from "react";
+
+//Fetch de la BDD
+async function getSingers(): Promise<Singer[]> {
   const response = await fetch("http://localhost:3000/api/singers");
   const data = await response.json();
   return data;
 }
 
-export default async function Table() {
+export default function Table() {
+  const [singersData, setSingersData] = useState<Singer[]>([]);
 
-  const singers = await getSingers();
-  console.log("ESTOS SON LOS SINGERS DENTRO DE TABLE", singers);
+  async function getData() {
+    try {
+      const response = await getSingers();
+      console.log("ESTO ES RESPONSE:", response);
+
+      return response;
+    } catch (error) {
+      console.error("Something went wrong:", error);
+      throw error;
+    }
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getData();
+        setSingersData(data);
+      } catch (error) {
+        console.error("Something went wrong:", error);
+        throw error;
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <section className="antialiased font-sans bg-gray-200">
@@ -87,8 +115,7 @@ export default async function Table() {
                   </tr>
                 </thead>
                 <tbody>
-                  
-                  {singers.map((singer) => (
+                  {singersData.map((singer) => (
                     <tr key={singer.id}>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         {singer.id}
@@ -100,16 +127,24 @@ export default async function Table() {
                         {singer.genre}
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        <a href="#" className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin">Edit</a>
-                        <a href="#" className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Remove</a>
-                    </td>
+                        <a
+                          href="#"
+                          className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"
+                        >
+                          Edit
+                        </a>
+                        <a
+                          href="#"
+                          className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin"
+                        >
+                          Remove
+                        </a>
+                      </td>
                     </tr>
                   ))}
-                  
                 </tbody>
               </table>
               <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                
                 <div className="inline-flex mt-2 xs:mt-0">
                   <button className="text-sm bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-l">
                     Prev
