@@ -34,15 +34,16 @@ interface EditSinger {
   age: number;
   genre: string;
 }
-
 interface Props {
   data: EditSinger
 }
 
 
+
+
 const EditSinger = ({ data }: Props) => {
 
-  console.log("DATA DE CANTANTE A EDITAR EN FORM: ", data)
+  console.log("DATA DE CANTANTE A EDITAR EN FORM: ", data.id, data.name, data.age, data.genre)
   
   //Métodos de Hooks-form
   const {
