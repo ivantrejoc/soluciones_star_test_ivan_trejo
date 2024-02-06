@@ -1,0 +1,17 @@
+{
+    "builds": [
+      {
+        "src": "path/to/your/app",
+        "use": "@vercel/node",
+        "env": {
+          "DATABASE_URL": "your-database-url"
+        },
+        "build": {
+          "commands": [
+            "prisma generate"
+          ]
+        }
+      }
+    ]
+  }
+  
