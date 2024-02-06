@@ -1,6 +1,10 @@
+import Table from "./components/Table/Table";
 
 export default function Home() {
   return (
-    <h1>MY APLICACIÓN</h1>
+    <main>
+      <h1>MY APLICACIÓN</h1>
+      <Table />
+    </main>
   );
 }
