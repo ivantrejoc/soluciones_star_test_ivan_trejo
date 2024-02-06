@@ -1,4 +1,4 @@
-import EditSinger from "../components/EditSinger/EditSinger";
+import EditSinger from "../../components/EditSinger/EditSinger";
 
 const Edit = () => {
   return (

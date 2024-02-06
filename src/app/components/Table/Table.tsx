@@ -128,10 +128,11 @@ export default function Table() {
                       </td>
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <a
-                          href="#"
+                        key={singer.id}
+                          href={`/edit/${singer.id}`}
                           className="bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"
                         >
-                          Edit
+                          Update
                         </a>
                         <a
                           href="#"
