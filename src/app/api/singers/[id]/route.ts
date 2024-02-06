@@ -17,7 +17,7 @@ export async function GET(req: Request, { params }: Params) {
       }
     });
     if (singerById) {
-      return NextResponse.json({ singerById }, { status: 200 });
+      return NextResponse.json( singerById , { status: 200 });
     }
   } catch (error) {
     return NextResponse.json(
@@ -58,13 +58,11 @@ export async function PUT(req: Request, { params }: Params) {
   try {
     const { id } = params;
     const body = await req.json();
-    console.log("ESTO ES LO QUE ESTÁ LLEGANDO DEL FORM", body);
     const { name, age, genre } = body;
-    console.log("ESTE ES EL ID QUE LLEGA POR PARAMS: ", id);
     const idNumber = Number(id);
     await db.singer.update({
       where: {
-        id: idNumber 
+        id: idNumber
       },
       data: {
         name: name,

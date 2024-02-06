@@ -4,6 +4,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 
+
+//Validación del form
 export const SingerEditSchema = z.object({
   id: z
     .string()
@@ -24,7 +26,25 @@ export const SingerEditSchema = z.object({
   genre: z.string().min(1, "Genre is required")
 });
 
-const EditSinger = () => {
+//interface de data props
+
+interface EditSinger {
+  id: number;
+  name: string;
+  age: number;
+  genre: string;
+}
+
+interface Props {
+  data: EditSinger
+}
+
+
+const EditSinger = ({ data }: Props) => {
+
+  console.log("DATA DE CANTANTE A EDITAR EN FORM: ", data)
+  
+  //Métodos de Hooks-form
   const {
     register,
     handleSubmit,
@@ -80,13 +100,13 @@ const EditSinger = () => {
           <div className="mb-4 flex flex-col gap-6">
             <div className="relative h-11 w-full min-w-[200px]">
               <label className="pointer-events-none absolute left-0 -top-1.5 flex h-full w-full text-[13px] font-normal leading-tight text-blue-gray-400 transition-all">
-                Name
+                ID
               </label>
               <input
                 id="id"
                 type="number"
                 className="mt-3 peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-400 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                placeholder="2..."
+                placeholder= {data.id.toString()}
                 {...register("id")}
               />
               {errors?.id?.message && (
@@ -100,7 +120,7 @@ const EditSinger = () => {
               <input
                 id="name"
                 className="mt-3 peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-400 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                placeholder="Joaquin Sabina..."
+                placeholder={data.name}
                 {...register("name")}
               />
               {errors?.name?.message && (
@@ -115,7 +135,7 @@ const EditSinger = () => {
                 id="age"
                 type="number"
                 className="mt-3 peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-400 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                placeholder="25"
+                placeholder={data.age.toString()}
                 {...register("age")}
               />
               {errors?.age?.message && (
@@ -129,7 +149,7 @@ const EditSinger = () => {
               <input
                 id="genre"
                 className="mt-3 peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-400 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                placeholder="Reggaeton..."
+                placeholder={data.genre}
                 {...register("genre")}
               />
               {errors?.genre?.message && (
