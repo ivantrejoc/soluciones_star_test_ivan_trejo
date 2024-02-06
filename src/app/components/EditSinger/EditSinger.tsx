@@ -92,7 +92,8 @@ const EditSinger = ({ data }: Props) => {
           Update Singer
         </h4>
         <p className="mt-1 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-          Enter the singer details.
+          The singer´s original data is in the placeholder,<br/>
+          please complete all fields.
         </p>
         <form
           className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
