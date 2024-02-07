@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 
 async function getSingers(): Promise<Singer[]> {
   const response = await fetch(
-    "https://soluciones-star-test-ivan-trejo-h5uo7b7u9-ivantrejoc-s-team.vercel.app/api/singers"
+    "api/singers"
   );
   const data = await response.json();
   return data;
@@ -32,7 +32,7 @@ async function getSingers(): Promise<Singer[]> {
 
 async function deleteSinger(id: number) {
   const response = await fetch(
-    `https://soluciones-star-test-ivan-trejo-h5uo7b7u9-ivantrejoc-s-team.vercel.app/api/singers/${id}`,
+    `api/singers/${id}`,
     {
       method: "DELETE"
     }
