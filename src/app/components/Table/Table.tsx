@@ -3,10 +3,16 @@
 import { Singer } from "@prisma/client";
 import { useEffect, useState } from "react";
 
+//local
+// const URL = "http://localhost:3000"
+
+//Producción:
+const URL = "https://soluciones-star-test-ivan-trejo.vercel.app"
+
 //Fetch de la BDD
 
 async function getSingers(): Promise<Singer[]> {
-  const response = await fetch("http://localhost:3000/api/singers");
+  const response = await fetch(`${URL}/api/singers`);
   const data = await response.json();
   return data;
 }
@@ -14,7 +20,7 @@ async function getSingers(): Promise<Singer[]> {
 //Borrar Cantante
 
 async function deleteSinger(id: number) {
-  const response = await fetch(`http://localhost:3000/api/singers/${id}`, {
+  const response = await fetch(`${URL}/api/singers/${id}`, {
     method: "DELETE"
   });
   const data = await response.json();

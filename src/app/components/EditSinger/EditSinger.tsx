@@ -5,6 +5,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 
 
+//local
+// const URL = "http://localhost:3000"
+
+//Producción:
+const URL = "https://soluciones-star-test-ivan-trejo.vercel.app"
+
 //Validación del form
 export const SingerEditSchema = z.object({
   id: z
@@ -62,7 +68,7 @@ const EditSinger = ({ data }: Props) => {
     const { id, name, age, genre } = SingerEditSchema.parse(values);
     const ageToNum = Number(age);
     console.log("TIPO DE DATO AGE: ", typeof ageToNum);
-    const response = await fetch(`http://localhost:3000/api/singers/${id}`, {
+    const response = await fetch(`${URL}/api/singers/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
