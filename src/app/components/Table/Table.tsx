@@ -4,39 +4,19 @@ import { Singer } from "@prisma/client";
 import { useEffect, useState } from "react";
 
 //Fetch de la BDD
-//LOCAL
-// async function getSingers(): Promise<Singer[]> {
-//   const response = await fetch("http://localhost:3000/api/singers");
-//   const data = await response.json();
-//   return data;
-// }
 
 async function getSingers(): Promise<Singer[]> {
-  const response = await fetch(
-    "api/singers"
-  );
+  const response = await fetch("http://localhost:3000/api/singers");
   const data = await response.json();
   return data;
 }
 
 //Borrar Cantante
-//LOCAL
-// async function deleteSinger(id: number) {
-//   const response = await fetch(`http://localhost:3000/api/singers/${id}`, {
-//     method: "DELETE"
-//   });
-//   const data = await response.json();
-//   console.log("MENSAJE DE API BORRADO: ", data);
-//   return data;
-// }
 
 async function deleteSinger(id: number) {
-  const response = await fetch(
-    `api/singers/${id}`,
-    {
-      method: "DELETE"
-    }
-  );
+  const response = await fetch(`http://localhost:3000/api/singers/${id}`, {
+    method: "DELETE"
+  });
   const data = await response.json();
   console.log("MENSAJE DE API BORRADO: ", data);
   return data;
