@@ -15,6 +15,7 @@ Instrucciones:
 4. Crea un archivo .env y declara las siguientes variables de entorno para conectarte a la base de datos:
 
   DATABASE_URL="postgres://postgres.nxhxzkbejbgldinzkmpt:Admin17341035@aws-0-us-west-1.pooler.supabase.com:5432/postgres"
+  
   DIRECT_URL="postgres://postgres.nxhxzkbejbgldinzkmpt:Admin17341035@aws-0-us-west-1.pooler.supabase.com:5432/postgres"
 
 5. Ejecuta el comando npm run dev
