@@ -11,6 +11,7 @@ En este proyecto podrás visualizar, el maquetado de un figma en la parte superi
 Esta lista contiene datos como su nombre, género musical y edad, podrás interactuar con la base de datos creando nuevos cantantes, editando o eliminando los existentes.
 
 
+IMPORTANTE: Debes contar con Noode v18.17.0 o superior.
 Instrucciones:
 
 1. Clonar repositorio en tu equipo.
@@ -19,7 +20,11 @@ Instrucciones:
 
 3. Ejecuta el comando npm install
 
-4. Crea un archivo .env y declara las siguientes variables de entorno para conectarte a la base de datos:
+     Nota: es posible que tengas que instalar por separado las siguientes dependencias:
+           npm i @hookform/resolvers
+           npm i @prisma/client
+
+5. Crea un archivo .env y declara las siguientes variables de entorno para conectarte a la base de datos:
 
     DATABASE_URL="postgres://postgres.nxhxzkbejbgldinzkmpt:Admin17341035@aws-0-us-west-1.pooler.supabase.com:5432/postgres"
 
@@ -27,9 +32,9 @@ Instrucciones:
   
     DIRECT_URL="postgres://postgres.nxhxzkbejbgldinzkmpt:Admin17341035@aws-0-us-west-1.pooler.supabase.com:5432/postgres"
 
-5. Ejecuta el comando npm run dev
+6. Ejecuta el comando npm run dev
 
-6. En tu navegador, ingresa a la siguiente URL: http://localhost:3000/
+7. En tu navegador, ingresa a la siguiente URL: http://localhost:3000/
 
-7. Navega por el proyecto
+8. Navega por el proyecto
      
