@@ -1,5 +1,4 @@
 import { db } from "@/libs/db";
-import { Singer } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 //CREACIÓN NUEVO CANTANTE
@@ -30,7 +29,7 @@ export async function POST(req: Request) {
 }
 
 //TODOS LOS CANTANTES
-export async function GET(req: Request){
+export async function GET(req: Request) {
   try {
     const singers = await db.singer.findMany({
       select: {
@@ -41,7 +40,7 @@ export async function GET(req: Request){
       }
     });
     if (singers) {
-      return NextResponse.json(singers , { status: 200 });
+      return NextResponse.json(singers, { status: 200 });
     }
   } catch (error) {
     return NextResponse.json(
@@ -53,22 +52,22 @@ export async function GET(req: Request){
 
 //EDITAR CANTANTE
 export async function PUT(req: Request) {
-    try {
-      const singers = await db.singer.findMany({
-        select: {
-          id: true,
-          name: true,
-          age: true,
-          genre: true
-        }
-      });
-      if (singers) {
-        return NextResponse.json({ singers }, { status: 200 });
+  try {
+    const singers = await db.singer.findMany({
+      select: {
+        id: true,
+        name: true,
+        age: true,
+        genre: true
       }
-    } catch (error) {
-      return NextResponse.json(
-        { message: "Something went wrong", error },
-        { status: 500 }
-      );
+    });
+    if (singers) {
+      return NextResponse.json({ singers }, { status: 200 });
     }
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Something went wrong", error },
+      { status: 500 }
+    );
   }
+}
