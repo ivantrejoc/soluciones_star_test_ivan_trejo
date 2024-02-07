@@ -4,17 +4,39 @@ import { Singer } from "@prisma/client";
 import { useEffect, useState } from "react";
 
 //Fetch de la BDD
+//LOCAL
+// async function getSingers(): Promise<Singer[]> {
+//   const response = await fetch("http://localhost:3000/api/singers");
+//   const data = await response.json();
+//   return data;
+// }
+
 async function getSingers(): Promise<Singer[]> {
-  const response = await fetch("http://localhost:3000/api/singers");
+  const response = await fetch(
+    "https://soluciones-star-test-ivan-trejo-h5uo7b7u9-ivantrejoc-s-team.vercel.app//api/singers"
+  );
   const data = await response.json();
   return data;
 }
 
 //Borrar Cantante
+//LOCAL
+// async function deleteSinger(id: number) {
+//   const response = await fetch(`http://localhost:3000/api/singers/${id}`, {
+//     method: "DELETE"
+//   });
+//   const data = await response.json();
+//   console.log("MENSAJE DE API BORRADO: ", data);
+//   return data;
+// }
+
 async function deleteSinger(id: number) {
-  const response = await fetch(`http://localhost:3000/api/singers/${id}`, {
-    method: "DELETE"
-  });
+  const response = await fetch(
+    `https://soluciones-star-test-ivan-trejo-h5uo7b7u9-ivantrejoc-s-team.vercel.app//api/singers/${id}`,
+    {
+      method: "DELETE"
+    }
+  );
   const data = await response.json();
   console.log("MENSAJE DE API BORRADO: ", data);
   return data;
