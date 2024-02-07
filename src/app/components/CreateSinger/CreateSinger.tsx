@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 //local
 // const URL = "http://localhost:3000"
 
-//Producción:
+// Producción:
 const URL = "https://soluciones-star-test-ivan-trejo.vercel.app"
 
 export const SingerSchema = z.object({
