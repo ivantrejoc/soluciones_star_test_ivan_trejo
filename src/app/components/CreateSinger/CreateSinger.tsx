@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 
 
 //local
-// const URL = "http://localhost:3000"
+const URL = "http://localhost:3000"
 
 // Producción:
-const URL = "https://soluciones-star-test-ivan-trejo.vercel.app"
+// const URL = "https://soluciones-star-test-ivan-trejo.vercel.app"
 
 export const SingerSchema = z.object({
   name: z

@@ -4,10 +4,10 @@ import { Singer } from "@prisma/client";
 import { useEffect, useState } from "react";
 
 //local
-// const URL = "http://localhost:3000"
+const URL = "http://localhost:3000"
 
 //Producción:
-const URL = "https://soluciones-star-test-ivan-trejo.vercel.app"
+// const URL = "https://soluciones-star-test-ivan-trejo.vercel.app"
 
 //Fetch de la BDD
 
